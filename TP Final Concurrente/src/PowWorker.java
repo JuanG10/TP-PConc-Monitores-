@@ -19,14 +19,14 @@ public class PowWorker extends Thread {
         super.run();
         nonceRange = myBuffer.read();
         try {
-            foundNonce();
+            findNonce();
         } catch (NoSuchAlgorithmException e) {
             System.out.println(e.getMessage());
             e.printStackTrace();
         }
     }
 
-    private void foundNonce() throws NoSuchAlgorithmException {
+    private void findNonce() throws NoSuchAlgorithmException {
         int actualPos = nonceRange.inicio;
         byte[] newHash;
         while (!Main.found && actualPos < nonceRange.fin) {
